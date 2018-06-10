@@ -12,5 +12,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "jest-localstorage-mock": "^2.2.0",
+    "react-test-renderer": "^16.4.0"
   }
 }
