@@ -9,3 +9,7 @@ export function write(key, value) {
 export function readMaxLevel() {
     return parseInt(read('maxLevel'), 10);
 }
+
+export function readCurrentLevel() {
+    return parseInt(read('currentLevel'), 10);
+}

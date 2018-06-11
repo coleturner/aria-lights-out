@@ -1,28 +1,33 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import CharacterSelectScreen from './Screens/CharacterSelectScreen';
 import ErrorScreen from './Screens/ErrorScreen';
 import WelcomeScreen from './Screens/WelcomeScreen';
 import { AppLevel, LEVELS, INCREMENT_IMPOSSIBLE_ERROR } from './constants';
-import { readMaxLevel, write } from './storage';
+import { readCurrentLevel, readMaxLevel, write } from './storage';
+
 import './App.css';
+import './Forms.css';
 
 const levelComponents = {
-  welcome: WelcomeScreen
-}
+  welcome: WelcomeScreen,
+  1: CharacterSelectScreen,
+};
 
 class App extends Component {
   static propTypes = {
-    level: PropTypes.number
-  }
+    level: PropTypes.number,
+  };
 
   constructor(...args) {
     super(...args);
 
     const [props] = args;
-    const { level, maxLevel = readMaxLevel() } = props;
-    this.state = { level };
+    const initialLevel = readCurrentLevel() || 'welcome';
+    const { level = initialLevel, maxLevel = readMaxLevel() } = props;
+    this.state = { level, maxLevel };
   }
-  
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.level !== this.props.level) {
       this.setLevel(nextProps.level);
@@ -30,6 +35,13 @@ class App extends Component {
   }
 
   incrementLevel() {
+    console.log(this);
+    if (this.state.level === 'welcome') {
+      // Shhh it's ok this is on purpose
+      // eslint-disable-next-line
+      this.state.level = 0;
+    }
+
     if (typeof this.state.level !== 'number') {
       throw new Error(INCREMENT_IMPOSSIBLE_ERROR);
     }
@@ -39,8 +51,10 @@ class App extends Component {
   }
 
   setLevel(level) {
-    const maxLevel = isNaN(this.state.maxLevel) ?
-      level : Math.max(this.state.maxLevel, level);
+    console.log('Setting level to', level);
+    const maxLevel = isNaN(this.state.maxLevel)
+      ? level
+      : Math.max(this.state.maxLevel, level);
     this.setState({ level });
 
     if (maxLevel !== this.state.maxLevel) {
@@ -55,17 +69,25 @@ class App extends Component {
 
   renderLevel() {
     if (levelComponents.hasOwnProperty(this.state.level)) {
-      const Level = this.levelComponents[this.state.level];
+      const Level = levelComponents[this.state.level];
 
-      return this.state.level;
+      return <Level />;
     }
 
-    return <ErrorScreen />
+    return <ErrorScreen />;
+  }
+
+  getAppLevelContext() {
+    return {
+      incrementLevel: this.incrementLevel.bind(this),
+      level: this.state.level,
+      maxLevel: this.state.maxLevel,
+    };
   }
 
   render() {
     return (
-      <AppLevel.Provider value={{ level: this.state.level, maxLevel: this.state.maxLevel }}>
+      <AppLevel.Provider value={this.getAppLevelContext()}>
         {this.renderLevel()}
       </AppLevel.Provider>
     );
