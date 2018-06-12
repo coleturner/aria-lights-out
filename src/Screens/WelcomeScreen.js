@@ -1,5 +1,5 @@
 import React from "react";
-import { AppLevel, LEVEL_NAMES } from "../constants";
+import { AppContext, LEVEL_NAMES } from "../constants";
 import logo from "../assets/logo.svg";
 
 export default function WelcomeScreen(props) {
@@ -13,7 +13,7 @@ export default function WelcomeScreen(props) {
       </p>
 
       <ol className="Welcome-actions" role="menubar">
-        <AppLevel.Consumer>
+        <AppContext.Consumer>
           {/* TODO: support continuing any level from welcome screen */}
           {({ maxLevel }) =>
             !!maxLevel && (
@@ -22,14 +22,14 @@ export default function WelcomeScreen(props) {
               </li>
             )
           }
-        </AppLevel.Consumer>
-        <AppLevel.Consumer>
+        </AppContext.Consumer>
+        <AppContext.Consumer>
           {({ incrementLevel }) => (
             <li>
               <button onClick={() => incrementLevel()}>New Game</button>
             </li>
           )}
-        </AppLevel.Consumer>
+        </AppContext.Consumer>
       </ol>
     </div>
   );

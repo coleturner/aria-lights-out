@@ -3,11 +3,18 @@ import PropTypes from 'prop-types';
 import CharacterSelectScreen from './Screens/CharacterSelectScreen';
 import ErrorScreen from './Screens/ErrorScreen';
 import WelcomeScreen from './Screens/WelcomeScreen';
-import { AppLevel, LEVELS, INCREMENT_IMPOSSIBLE_ERROR } from './constants';
-import { readCurrentLevel, readMaxLevel, write } from './storage';
+import { AppContext, LEVELS, INCREMENT_IMPOSSIBLE_ERROR } from './constants';
+import {
+  readCurrentLevel,
+  readGameState,
+  readMaxLevel,
+  write,
+  writeGameState,
+} from './storage';
 
 import './App.css';
 import './Forms.css';
+import { stateReducer } from './Game';
 
 const levelComponents = {
   welcome: WelcomeScreen,
@@ -24,8 +31,13 @@ class App extends Component {
 
     const [props] = args;
     const initialLevel = readCurrentLevel() || 'welcome';
-    const { level = initialLevel, maxLevel = readMaxLevel() } = props;
-    this.state = { level, maxLevel };
+    const {
+      level = initialLevel,
+      maxLevel = readMaxLevel(),
+      gameState = readGameState(),
+    } = props;
+
+    this.state = { level, maxLevel, gameState };
   }
 
   componentWillReceiveProps(nextProps) {
@@ -34,8 +46,7 @@ class App extends Component {
     }
   }
 
-  incrementLevel() {
-    console.log(this);
+  incrementLevel = () => {
     if (this.state.level === 'welcome') {
       // Shhh it's ok this is on purpose
       // eslint-disable-next-line
@@ -48,9 +59,9 @@ class App extends Component {
 
     const nextLevel = this.state.level + 1;
     this.setLevel(nextLevel);
-  }
+  };
 
-  setLevel(level) {
+  setLevel = level => {
     console.log('Setting level to', level);
     const maxLevel = isNaN(this.state.maxLevel)
       ? level
@@ -60,14 +71,14 @@ class App extends Component {
     if (maxLevel !== this.state.maxLevel) {
       this.setMaxLevel(maxLevel);
     }
-  }
+  };
 
-  setMaxLevel(maxLevel) {
+  setMaxLevel = maxLevel => {
     write('maxLevel', maxLevel);
     this.setState({ maxLevel });
-  }
+  };
 
-  renderLevel() {
+  renderLevel = () => {
     if (levelComponents.hasOwnProperty(this.state.level)) {
       const Level = levelComponents[this.state.level];
 
@@ -75,21 +86,32 @@ class App extends Component {
     }
 
     return <ErrorScreen />;
-  }
+  };
 
-  getAppLevelContext() {
+  gameStateSetterFactory = gameState => state => ({
+    gameState: stateReducer({ ...state.gameStatem, ...gameState }),
+  });
+
+  setGameState = gameState => {
+    this.setState(this.gameStateSetterFactory(gameState));
+    writeGameState(gameState);
+  };
+
+  getAppContextContext = () => {
     return {
-      incrementLevel: this.incrementLevel.bind(this),
+      incrementLevel: this.incrementLevel,
       level: this.state.level,
       maxLevel: this.state.maxLevel,
+      gameState: this.state.gameState,
+      setGameState: this.setGameState,
     };
-  }
+  };
 
   render() {
     return (
-      <AppLevel.Provider value={this.getAppLevelContext()}>
+      <AppContext.Provider value={this.getAppContextContext()}>
         {this.renderLevel()}
-      </AppLevel.Provider>
+      </AppContext.Provider>
     );
   }
 }

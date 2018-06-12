@@ -142,8 +142,21 @@ p {
   padding: 0.65em;
   cursor: pointer;
   outline: none;
+  user-select: none;
+}
+
+.Character-choices li img {
+  max-height: 3em;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 0.3em;
 }
 
 .Character-choices li:hover {
   border-color: #fff;
+}
+
+.Continue-button {
+  margin-top: 0.7 5em;
+  font-size: 1.15em;
 }

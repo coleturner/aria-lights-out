@@ -1,9 +1,10 @@
 import React from 'react';
-import { readMaxLevel, read } from './storage';
 
-export const AppLevel = React.createContext({
-  level: read('currentLevel'),
-  maxLevel: readMaxLevel(),
+export const AppContext = React.createContext({
+  level: null,
+  maxLevel: null,
+  gameState: null,
+  setGameState: () => {},
 });
 
 export const LEVELS = ['roles', 'states', 'properties'];
@@ -13,9 +14,9 @@ export const LEVEL_NAMES = {
 };
 
 export const CHARACTERS = [
-  { name: 'Zeke', color: 'rgb(255, 146, 146)' },
-  { name: 'Robin', color: 'rgb(146, 224, 255)' },
-  { name: 'Jade', color: 'rgb(159, 255, 146)' },
+  { avatar: 'zeke.svg', name: 'Zeke', color: 'rgb(255, 146, 146)' },
+  { avatar: 'robin.svg', name: 'Robin', color: 'rgb(146, 224, 255)' },
+  { avatar: 'jade.svg', name: 'Jade', color: 'rgb(159, 255, 146)' },
 ];
 
 export const INCREMENT_IMPOSSIBLE_ERROR = 'A level has not yet been set';
