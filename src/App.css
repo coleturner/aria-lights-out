@@ -178,6 +178,13 @@ p {
   border: 4px dashed rgba(255,255,255,0.35);
   border-left: 0;
   border-right: 0;
-  padding: 0.45em 0.3em;
-  
+  padding: 0.45em 0.3em;  
+}
+
+code { 
+  display: inline-block;
+  vertical-align: middle;
+  background: rgba(0,0,0,0.3);
+  border-radius: 0.3em;
+  padding: 0.15em 0.3em;
 }

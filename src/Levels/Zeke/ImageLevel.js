@@ -63,13 +63,15 @@ Web images have the \`alt\` (alternative text) property to describe the contents
           `}
         />
 
-        <Markdown
-          source={`Good image descriptions:
+        <div className="hint">
+          <Markdown
+            source={`###### Good image descriptions:
 - Briefly describe the subjects of the image.
 - List numbers, figures, and relevant facts.
 - Relate to the context where the image is embedded in markup.
 `}
-        />
+          />
+        </div>
         {/* @todo ARIA */}
         <p className="instruction">
           <em>Add an alt attribute that tells Zeke where to go.</em>
