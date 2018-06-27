@@ -1,6 +1,6 @@
-import React from "react";
-import { AppContext, LEVEL_NAMES } from "../constants";
-import logo from "../assets/logo.svg";
+import React from 'react';
+import { AppContext, LEVEL_NAMES } from '../constants';
+import logo from '../assets/logo.svg';
 
 export default function WelcomeScreen(props) {
   return (

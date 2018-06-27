@@ -14,6 +14,7 @@ export const LEVEL_NAMES = {
 export const DRAGON_NAME = 'ZE DRAGÓN';
 export const ZEKE_NAME = 'Zeke';
 export const ARMOR_NAME = 'Armor of Alkali';
+export const MAP_DESCRIPTION = 'A map with a clear path forward.';
 
 export const CHARACTERS = [
   { avatar: 'zeke.svg', name: ZEKE_NAME, color: 'rgb(255, 146, 146)' },
