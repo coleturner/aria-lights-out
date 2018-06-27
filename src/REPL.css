@@ -1,0 +1,28 @@
+.repl {
+  display: flex;
+  flex-direction: row;
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  border-radius: 0.45em;
+  overflow: hidden;
+}
+
+.repl iframe,
+.repl textarea {
+  flex: 1;
+  font-family: 'Courier New', Sans-Serif;
+  font-size: 16px;
+  padding: 0.5em;
+}
+
+.repl iframe {
+  border: 0;
+  background: #f1f1f1;
+  border-radius: 0.25em 0.25em 0 0;
+}
+
+.repl textarea {
+  border-radius: 0 0 0.25em 0.25em;
+  border: 0;
+}
