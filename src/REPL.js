@@ -14,10 +14,12 @@ class REPL extends Component {
 
   static propTypes = {
     initialSource: PropTypes.string.isRequired,
+    vertical: PropTypes.bool.isRequired,
   };
 
   static defaultProps = {
     initialSource: '',
+    vertical: false,
   };
 
   setSource = source => {
@@ -40,7 +42,15 @@ class REPL extends Component {
     <title>Preview Source</title>
     <style type="text/css">
       * { border-box: context-box; padding: 0; margin: 0; }
-      body { padding: 1em; }
+      body {
+        padding: 1em;
+        line-height: 1.5;
+        font-family: Frutiger, 'Frutiger Linotype', Univers, Calibri, 'Gill Sans',
+          'Gill Sans MT', 'Myriad Pro', Myriad, 'DejaVu Sans Condensed',
+          'Liberation Sans', 'Nimbus Sans L', Tahoma, Geneva, 'Helvetica Neue',
+          Helvetica, Arial, sans-serif;
+        text-align: center;
+      }
 
       ${this.props.styleSheet}
     </script>
@@ -67,8 +77,14 @@ class REPL extends Component {
 
   render() {
     return (
-      <div className="repl">
-        <iframe title="Preview Code" ref={this.setFrameRef} src="about:blank" />
+      <div className={`repl ${this.props.vertical ? 'vertical' : ''}`}>
+        <div className="iframe-container">
+          <iframe
+            title="Preview Code"
+            ref={this.setFrameRef}
+            src="about:blank"
+          />
+        </div>
         <textarea
           onChange={e => this.setSource(e.target.value)}
           value={this.state.source}

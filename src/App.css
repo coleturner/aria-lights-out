@@ -13,7 +13,7 @@ html {
 
 body {
   background: #252a2f;
-  color: var(--text-primary-color);
+  color: #fffdf0c0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -61,7 +61,6 @@ button[disabled] {
 }
 
 p {
-  color: #fffdf0c0;
 }
 
 .App {
@@ -94,6 +93,12 @@ p {
 
 .Screen-center {
   text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.Screen-left {
+  text-align: left;
   max-width: 600px;
   margin: 0 auto;
 }
@@ -163,4 +168,16 @@ p {
 .Continue-button {
   margin-top: 0.7 5em;
   font-size: 1.15em;
+}
+
+.instruction {
+  font-size: 1.75em;
+  color: #fff;
+  text-align: center;
+  color: #a3f5c5;
+  border: 4px dashed rgba(255,255,255,0.35);
+  border-left: 0;
+  border-right: 0;
+  padding: 0.45em 0.3em;
+  
 }
