@@ -32,10 +32,17 @@
 }
 
 .repl textarea {
+  background: #333;
+  background: rgba(0,0,0,0.35);
+  color: #e8e5d8;
   border-radius: 0 0 0.25em 0.25em;
   border: 0;
   width: 50%;
   padding: 1em;
+}
+
+.repl textarea:focus {
+  color: #fff;
 }
 
 .repl.vertical {

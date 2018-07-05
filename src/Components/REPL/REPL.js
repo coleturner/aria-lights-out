@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Markdown from 'react-markdown';
 
 import './REPL.css';
+import { Hint } from '../Hint';
 
-class REPL extends Component {
+export class REPL extends Component {
   static getDerivedStateFromProps(props, state) {
     if (!state || state.source === null) {
       return { source: props.initialSource };
@@ -15,6 +17,7 @@ class REPL extends Component {
   static propTypes = {
     initialSource: PropTypes.string.isRequired,
     vertical: PropTypes.bool.isRequired,
+    hint: PropTypes.string,
   };
 
   static defaultProps = {
@@ -76,8 +79,10 @@ class REPL extends Component {
   }
 
   render() {
+    const { hint, vertical } = this.props;
+
     return (
-      <div className={`repl ${this.props.vertical ? 'vertical' : ''}`}>
+      <div className={`repl ${vertical ? 'vertical' : ''}`}>
         <div className="iframe-container">
           <iframe
             title="Preview Code"
@@ -89,9 +94,12 @@ class REPL extends Component {
           onChange={e => this.setSource(e.target.value)}
           value={this.state.source}
         />
+        {hint && (
+          <Hint>
+            <Markdown source={hint} />
+          </Hint>
+        )}
       </div>
     );
   }
 }
-
-export default REPL;

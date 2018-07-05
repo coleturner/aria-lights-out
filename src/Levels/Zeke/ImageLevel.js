@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Markdown from 'react-markdown';
-import REPL from '../../REPL';
+import styled, { css } from 'react-emotion';
 import {
   DRAGON_NAME,
   ZEKE_NAME,
@@ -9,6 +9,22 @@ import {
   MAP_DESCRIPTION,
 } from '../../constants';
 import MAP_SOURCE from '../../assets/map.svg';
+import { Flexbox } from '../../Components/Flexbox';
+import { Narrative } from '../../Components/Narrative';
+import { Hint } from '../../Components/Hint';
+
+const Preview = styled('div')`
+  text-align: center;
+
+  img {
+    max-height: 20em;
+    max-width: 20em;
+  }
+
+  ${Hint} {
+    text-align: left;
+  }
+`;
 export default class ImageLevel extends Component {
   static propTypes = {
     screen: PropTypes.string,
@@ -44,42 +60,44 @@ But he can't see. ${ZEKE_NAME} is blind and you will lead the way to the sacred 
 
   renderMapExposition() {
     return (
-      <React.Fragment>
-        <Markdown
-          source={`The woods outside have deathly spiders. One wrong turn and
-${ZEKE_NAME} ends in the deep dark web. To help him read the map, we will need to make the image accessible.
+      <Flexbox className="Screen-full">
+        <div>
+          <Narrative>
+            <Markdown
+              source={`Deathly spiders roam the woods. One wrong turn and
+${ZEKE_NAME} ends in the *deep* **dark** web.`}
+            />
+          </Narrative>
 
-Web images have the \`alt\` (alternative text) property to describe the contents of the picture. Every image should have this attribute - whether an empty string for visual effect only *or* a description that can be read aloud. ${ZEKE_NAME} needs this attribute to understand pictures he can't see.`}
-        />
-
-        <REPL
-          vertical
-          initialSource={`<img src="${MAP_SOURCE}" />`}
-          styleSheet={`
-            img {
-              max-height: 5em;
-              max-width: 5em;
-            }
-          `}
-        />
-
-        <div className="hint">
           <Markdown
-            source={`###### Good image descriptions:
+            source={`Web images have the \`alt\` (alternative text) property to describe the contents of the picture. Every image should have this attribute - whether an empty string for visual effect only *or* a description that can be read aloud. ${ZEKE_NAME} needs this attribute to understand pictures he can't see.`}
+          />
+
+          {/* @todo ARIA */}
+          <p className="instruction">
+            <em>
+              Add an <code>alt</code> attribute to the image.
+            </em>
+          </p>
+
+          <button onClick={() => this.setScreen('mapExposition')}>
+            Explore the Forest
+          </button>
+        </div>
+
+        <Preview>
+          <img alt="Zeke's Map" src={MAP_SOURCE} />
+          <Hint>
+            <Markdown
+              source={`###### Good image descriptions:
 - Briefly describe the subjects of the image.
 - List numbers, figures, and relevant facts.
 - Relate to the context where the image is embedded in markup.
 `}
-          />
-        </div>
-        {/* @todo ARIA */}
-        <p className="instruction">
-          <em>Add an alt attribute that tells Zeke where to go.</em>
-        </p>
-        <button onClick={() => this.setScreen('mapExposition')}>
-          Explore the Forest
-        </button>
-      </React.Fragment>
+            />
+          </Hint>
+        </Preview>
+      </Flexbox>
     );
   }
 
@@ -93,6 +111,6 @@ Web images have the \`alt\` (alternative text) property to describe the contents
   }
 
   render() {
-    return <main className="Screen-left">{this.renderScreen()}</main>;
+    return <main>{this.renderScreen()}</main>;
   }
 }
