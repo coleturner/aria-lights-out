@@ -89,7 +89,7 @@ class App extends Component {
   };
 
   gameStateSetterFactory = gameState => state => ({
-    gameState: stateReducer({ ...state.gameStatem, ...gameState }),
+    gameState: stateReducer({ ...state.gameState, ...gameState }),
   });
 
   setGameState = gameState => {
