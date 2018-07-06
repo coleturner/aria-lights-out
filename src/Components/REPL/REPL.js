@@ -1,9 +1,54 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Markdown from 'react-markdown';
+import styled from 'react-emotion';
 
-import './REPL.css';
 import { Hint } from '../Hint';
+
+const Wrapper = styled.div`
+  max-width: 600px;
+  margin: 0 auto;
+`;
+
+const Container = styled.div`
+  display: flex;
+  border-radius: 0.45em;
+  overflow: hidden;
+
+  flex-direction: ${({ vertical }) => (vertical ? 'column' : 'row')};
+`;
+
+const paneStyle = `
+flex: 1 0 50%;
+font-family: 'Courier New', Sans-Serif;
+font-size: 16px;
+`;
+
+const FrameContainer = styled.div`
+  ${paneStyle} font-family: 'Courier New', Sans-Serif;
+  font-size: 16px;
+  min-height: 4em;
+  background: #f1f1f1;
+  border-radius: ${({ vertical }) =>
+    vertical ? '0.25em 0.25em 0 0' : '0.25em 0 0 0.25em'};
+  width: ${({ vertical }) => (vertical ? '100%' : '50%')};
+`;
+
+const Frame = styled.iframe`
+  border: 0;
+  flex: 1;
+`;
+
+const Editor = styled.textarea`
+  ${paneStyle};
+
+  background: #333;
+  background: rgba(0, 0, 0, 0.35);
+  color: #e8e5d8;
+  border-radius: 0 0 0.25em 0.25em;
+  border: 0;
+  padding: 1em;
+`;
 
 export class REPL extends Component {
   static getDerivedStateFromProps(props, state) {
@@ -82,24 +127,27 @@ export class REPL extends Component {
     const { hint, vertical } = this.props;
 
     return (
-      <div className={`repl ${vertical ? 'vertical' : ''}`}>
-        <div className="iframe-container">
-          <iframe
-            title="Preview Code"
-            ref={this.setFrameRef}
-            src="about:blank"
+      <Wrapper>
+        <Container vertical={vertical}>
+          <FrameContainer vertical={vertical}>
+            <Frame
+              title="Preview Code"
+              innerRef={this.setFrameRef}
+              src="about:blank"
+            />
+          </FrameContainer>
+          <Editor
+            onChange={e => this.setSource(e.target.value)}
+            value={this.state.source}
           />
-        </div>
-        <textarea
-          onChange={e => this.setSource(e.target.value)}
-          value={this.state.source}
-        />
+        </Container>
+
         {hint && (
           <Hint>
             <Markdown source={hint} />
           </Hint>
         )}
-      </div>
+      </Wrapper>
     );
   }
 }

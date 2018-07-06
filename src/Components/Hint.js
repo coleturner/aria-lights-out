@@ -1,5 +1,5 @@
 import styled from 'react-emotion';
-export const Hint = styled('p')`
+export const Hint = styled.p`
   background: rgb(244, 238, 180);
   color: rgba(0, 0, 0, 0.65);
   padding: 0.45em 1.45em 0.75em;
