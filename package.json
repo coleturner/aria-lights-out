@@ -53,12 +53,15 @@
     "test": "node scripts/test.js --env=jsdom",
     "precommit": "pretty-quick --stage",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "contributors:add": "all-contributors add",
+    "contributors:generate": "all-contributors generate"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.4.8",
     "@storybook/addon-links": "^3.4.8",
     "@storybook/react": "^3.4.8",
+    "all-contributors-cli": "^5.2.1",
     "babel-plugin-emotion": "^9.2.4",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-emotion": "^9.1.0",
