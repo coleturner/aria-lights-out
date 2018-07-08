@@ -1,0 +1,26 @@
+{
+  "projectName": "aria-lights-out",
+  "projectOwner": "coleturner",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "contributors": [
+    {
+      "login": "coleturner",
+      "name": "Cole Turner",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/800888?v=4",
+      "profile": "https://cole.codes/",
+      "contributions": [
+        "code",
+        "doc",
+        "design",
+        "ideas",
+        "infra"
+      ]
+    }
+  ]
+}

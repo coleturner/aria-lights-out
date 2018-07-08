@@ -24,3 +24,13 @@ The application should demonstrate how the web is perceived with various impairm
 
 - [Have a suggestion or question?](https://github.com/coleturner/aria-lights-out/issues/new)
 - [Pull requests are warmly welcomed.](https://github.com/coleturner/aria-lights-out/pulls)
+
+## Contributors
+
+Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+| [<img src="https://avatars0.githubusercontent.com/u/800888?v=4" width="100px;"/><br /><sub><b>Cole Turner</b></sub>](https://cole.codes/)<br />[💻](https://github.com/coleturner/aria-lights-out/commits?author=coleturner "Code") [📖](https://github.com/coleturner/aria-lights-out/commits?author=coleturner "Documentation") [🎨](#design-coleturner "Design") [🤔](#ideas-coleturner "Ideas, Planning, & Feedback") [🚇](#infra-coleturner "Infrastructure (Hosting, Build-Tools, etc)") |
+| :---: |
+<!-- ALL-CONTRIBUTORS-LIST:END -->
