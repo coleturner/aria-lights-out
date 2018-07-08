@@ -10,6 +10,14 @@ storiesOf('REPL', module)
   .add('Horizontal', () => (
     <REPL initialSource="<center>Cool cool cool</center>" />
   ))
-  .add('With Hint', () => (
-    <REPL hint="Work it" initialSource="<center>Cool cool cool</center>" />
+  .add('Injected Code without Preview', () => (
+    <REPL
+      lineNumbers
+      preview={false}
+      initialSource={[
+        '<center>Cool cool cool</center>',
+        <REPL.Input />,
+        '<center>Cool cool</center>',
+      ]}
+    />
   ));

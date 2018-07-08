@@ -4,10 +4,29 @@ import Markdown from 'react-markdown';
 import styled from 'react-emotion';
 
 import { Hint } from '../Hint';
+import { Input } from '../Form/Input';
 
 const Wrapper = styled.div`
   max-width: 600px;
   margin: 0 auto;
+`;
+
+const FrameContainer = styled.div`
+  font-family: 'Courier New', Sans-Serif;
+  font-size: 16px;
+  min-height: 4em;
+  background: #f1f1f1;
+`;
+
+const EditorContainer = styled.div`
+  display: flex;
+  justify-content: stretch;
+  align-content: stretch;
+  border-radius: 0 0 0.25em 0.25em;
+
+  > * {
+    flex: 1;
+  }
 `;
 
 const Container = styled.div`
@@ -16,22 +35,33 @@ const Container = styled.div`
   overflow: hidden;
 
   flex-direction: ${({ vertical }) => (vertical ? 'column' : 'row')};
-`;
 
-const paneStyle = `
-flex: 1 0 50%;
-font-family: 'Courier New', Sans-Serif;
-font-size: 16px;
-`;
+  > * {
+    flex: 1 0 50%;
+    font-family: 'Courier New', Sans-Serif;
+    font-size: 16px;
 
-const FrameContainer = styled.div`
-  ${paneStyle} font-family: 'Courier New', Sans-Serif;
-  font-size: 16px;
-  min-height: 4em;
-  background: #f1f1f1;
-  border-radius: ${({ vertical }) =>
-    vertical ? '0.25em 0.25em 0 0' : '0.25em 0 0 0.25em'};
-  width: ${({ vertical }) => (vertical ? '100%' : '50%')};
+    &:only-child {
+      border-radius: 0.25em;
+      width: 100%;
+    }
+
+    &:not(:only-child) {
+      width: 50%;
+
+      &:first-child {
+        border-radius: 0.25em 0 0 0.25em;
+      }
+
+      &:last-child {
+        border-radius: 0 0.25em 0.25em 0;
+      }
+    }
+  }
+
+  ${FrameContainer}, ${EditorContainer} {
+    min-height: 6em;
+  }
 `;
 
 const Frame = styled.iframe`
@@ -40,15 +70,32 @@ const Frame = styled.iframe`
 `;
 
 const Editor = styled.textarea`
-  ${paneStyle};
-
   background: #333;
   background: rgba(0, 0, 0, 0.35);
   color: #e8e5d8;
-  border-radius: 0 0 0.25em 0.25em;
   border: 0;
   padding: 1em;
 `;
+
+const LineNumberSidebar = styled.pre`
+  background: rgba(255, 255, 255, 0.15);
+  flex: 0 1 auto;
+  padding: 0.45em 0.3em;
+  margin: 0;
+  text-align: right;
+  font-family: 'Courier New', Sans-Serif;
+  font-size: 16px;
+`;
+
+function LineNumbers({ lines }) {
+  const lineItems = [];
+
+  for (let i = 1; i <= lines; i++) {
+    lineItems.push(i);
+  }
+
+  return <LineNumberSidebar>{lineItems.join('\n')}</LineNumberSidebar>;
+}
 
 export class REPL extends Component {
   static getDerivedStateFromProps(props, state) {
@@ -61,12 +108,16 @@ export class REPL extends Component {
 
   static propTypes = {
     initialSource: PropTypes.string.isRequired,
-    vertical: PropTypes.bool.isRequired,
     hint: PropTypes.string,
+    lineNumbers: PropTypes.bool.isRequired,
+    preview: PropTypes.bool.isRequired,
+    vertical: PropTypes.bool.isRequired,
   };
 
   static defaultProps = {
     initialSource: '',
+    lineNumbers: true,
+    preview: true,
     vertical: false,
   };
 
@@ -124,22 +175,27 @@ export class REPL extends Component {
   }
 
   render() {
-    const { hint, vertical } = this.props;
+    const { hint, lineNumbers, preview, vertical } = this.props;
 
     return (
       <Wrapper>
         <Container vertical={vertical}>
-          <FrameContainer vertical={vertical}>
-            <Frame
-              title="Preview Code"
-              innerRef={this.setFrameRef}
-              src="about:blank"
+          {preview && (
+            <FrameContainer>
+              <Frame
+                title="Preview Code"
+                innerRef={this.setFrameRef}
+                src="about:blank"
+              />
+            </FrameContainer>
+          )}
+          <EditorContainer>
+            {lineNumbers && <LineNumbers lines={25} />}
+            <Editor
+              onChange={e => this.setSource(e.target.value)}
+              value={this.state.source}
             />
-          </FrameContainer>
-          <Editor
-            onChange={e => this.setSource(e.target.value)}
-            value={this.state.source}
-          />
+          </EditorContainer>
         </Container>
 
         {hint && (
@@ -151,3 +207,5 @@ export class REPL extends Component {
     );
   }
 }
+
+REPL.Input = Input;

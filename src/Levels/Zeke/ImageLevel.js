@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Markdown from 'react-markdown';
-import styled, { css } from 'react-emotion';
+import styled from 'react-emotion';
 import {
   DRAGON_NAME,
   ZEKE_NAME,
