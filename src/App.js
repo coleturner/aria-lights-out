@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import CharacterSelectScreen from './Screens/CharacterSelectScreen';
 import ErrorScreen from './Screens/ErrorScreen';
 import WelcomeScreen from './Screens/WelcomeScreen';
-import { AppContext, LEVELS, INCREMENT_IMPOSSIBLE_ERROR } from './constants';
+import { AppContext, INCREMENT_IMPOSSIBLE_ERROR } from './constants';
 import {
   readCurrentLevel,
   readGameState,
@@ -11,9 +11,12 @@ import {
   write,
   writeGameState,
 } from './storage';
-
-import './App.css';
-import './Forms.css';
+import './globalStyles.app';
+/**
+ * TODO: potentially remove `pure-form` styles with Components instead
+ * See: https://github.com/coleturner/aria-lights-out/commit/c590fcc5b26105c3af464bbb72d1a69a7d25f58c#diff-dd694ae8403d6d44ce576cec9300bc94
+ */
+import './globalStyles.forms';
 import { stateReducer } from './Game';
 
 const levelComponents = {

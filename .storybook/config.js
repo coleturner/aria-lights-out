@@ -1,10 +1,10 @@
-import '../src/App.css';
+import '../src/globalStyles';
 import { configure } from '@storybook/react';
 
-const req = require.context('../src', true, /\.stories\.js$/)
+const req = require.context('../src', true, /\.stories\.js$/);
 
 function loadStories() {
-  req.keys().forEach((filename) => req(filename))
+  req.keys().forEach(filename => req(filename));
 }
 
 configure(loadStories, module);

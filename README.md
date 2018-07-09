@@ -1,4 +1,15 @@
-# Lights Out - Accessible Rich Internet Application
+<div align="center">
+  <h1>Lights Out 🔭</h1>
+
+  <p>Accessible Rich Internet Application</p>
+</div>
+
+<hr />
+
+[![Code Styles][prettier-badge]][prettier]
+[![Code of Conduct][coc-badge]][coc]
+[![PRs Welcome][prs-badge]][prs]
+[![All Contributors][contributors]](#contributors)
 
 ## An interactive experience
 
@@ -14,7 +25,7 @@ Here's what the web looks like with visual impairments including partial blurry 
 | :---------------------------------------------------------: | :-------------------------------------------------------------------: |
 | ![Webpage with blurry text](./public/impairment-blurry.jpg) | ![Webpage too dark to see](./public/impairment-partial-blindness.jpg) |
 
-Audio impairments affect a user's recognition of alerts and make accessing media a challenge. Operating a mouse is difficult with motor impairments - which is why keyboard navigation is no longer optional. Additional impairments can affect cognitive recognition which is why designing a predictable user experience is noawadays a necessity.
+Audio impairments affect a user's recognition of alerts and make accessing media a challenge. Operating a mouse is difficult with motor impairments - which is why keyboard navigation is no longer optional. Additional impairments can affect cognitive recognition which is why designing a predictable user experience is nowadays a necessity.
 
 ## Concept
 
@@ -35,3 +46,11 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds
 | :---: | :---: | :---: | :---: |
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
+
+[prs-badge]: https://img.shields.io/badge/PRs-welcome-orange.svg?style=flat-square
+[prs]: https://github.com/coleturner/aria-lights-out/pulls
+[prettier-badge]: https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square
+[prettier]: https://github.com/prettier/prettier
+[coc-badge]: https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square
+[coc]: https://github.com/coleturner/aria-lights-out/blob/master/CODE_OF_CONDUCT.md
+[contributors]: https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square
