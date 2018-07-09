@@ -1,5 +1,5 @@
 <div align="center">
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
   <h1>Lights Out 🔭</h1>
 
   <p>Accessible Rich Internet Application</p>
@@ -41,9 +41,10 @@ The application should demonstrate how the web is perceived with various impairm
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-| [<img src="https://avatars0.githubusercontent.com/u/800888?v=4" width="100px;"/><br /><sub><b>Cole Turner</b></sub>](https://cole.codes/)<br />[💻](https://github.com/aria-51/aria-lights-out/commits?author=coleturner "Code") [🚇](#infra-coleturner "Infrastructure (Hosting, Build-Tools, etc)") [🤔](#ideas-coleturner "Ideas, Planning, & Feedback") [🎨](#design-coleturner "Design") [📦](#platform-coleturner "Packaging/porting to new platform") |
-| :---: |
+| [<img src="https://avatars0.githubusercontent.com/u/800888?v=4" width="100px;"/><br /><sub><b>Cole Turner</b></sub>](https://cole.codes/)<br />[💻](https://github.com/aria-51/aria-lights-out/commits?author=coleturner "Code") [🚇](#infra-coleturner "Infrastructure (Hosting, Build-Tools, etc)") [🤔](#ideas-coleturner "Ideas, Planning, & Feedback") [🎨](#design-coleturner "Design") [📦](#platform-coleturner "Packaging/porting to new platform") | [<img src="https://avatars2.githubusercontent.com/u/5415348?v=4" width="100px;"/><br /><sub><b>Sam Richards</b></sub>](https://github.com/s-richards)<br />[💻](https://github.com/aria-51/aria-lights-out/commits?author=s-richards "Code") [🤔](#ideas-s-richards "Ideas, Planning, & Feedback") |
+| :---: | :---: |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
+
 Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->

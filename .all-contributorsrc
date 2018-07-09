@@ -21,6 +21,16 @@
         "design",
         "platform"
       ]
+    },
+    {
+      "login": "s-richards",
+      "name": "Sam Richards",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/5415348?v=4",
+      "profile": "https://github.com/s-richards",
+      "contributions": [
+        "code",
+        "ideas"
+      ]
     }
   ]
 }
