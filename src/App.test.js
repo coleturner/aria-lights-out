@@ -1,14 +1,14 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import ReactDOM from 'react-dom';
 import App from './App';
 import { INCREMENT_IMPOSSIBLE_ERROR } from './constants';
 
 describe('App', () => {
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<App />, div);
-    ReactDOM.unmountComponentAtNode(div);
+    const tree = TestRenderer.create(<App />).toTree();
+
+    expect(tree.nodeType).toBe('component');
+    expect(tree.type.prototype.constructor.name).toBe('App');
   });
 
   describe('#incrementLevel', () => {
