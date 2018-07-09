@@ -43,6 +43,15 @@
         "bug",
         "platform"
       ]
+    },
+    {
+      "login": "shermango",
+      "name": "Sherman Chen",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/20351341?v=4",
+      "profile": "http://twitter.com/_shermango",
+      "contributions": [
+        "ideas"
+      ]
     }
   ]
 }
