@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots REPL Horizontal 1`] = `
+<div
+  className="css-icdhao-Wrapper e1bwmrgi0"
+>
+  <div
+    className="css-2gxfpl-Container e1bwmrgi1"
+  >
+    <div
+      className="css-qdaanj-FrameContainer e1bwmrgi2"
+    >
+      <iframe
+        className="css-1mqlg88-Frame e1bwmrgi3"
+        src="about:blank"
+        title="Preview Code"
+      />
+    </div>
+    <textarea
+      className="css-ylh50e-Editor e1bwmrgi4"
+      onChange={[Function]}
+    />
+  </div>
+</div>
+`;
+
+exports[`Storyshots REPL Vertical 1`] = `
+<div
+  className="css-icdhao-Wrapper e1bwmrgi0"
+>
+  <div
+    className="css-wvqo5o-Container e1bwmrgi1"
+  >
+    <div
+      className="css-18677mk-FrameContainer e1bwmrgi2"
+    >
+      <iframe
+        className="css-1mqlg88-Frame e1bwmrgi3"
+        src="about:blank"
+        title="Preview Code"
+      />
+    </div>
+    <textarea
+      className="css-ylh50e-Editor e1bwmrgi4"
+      onChange={[Function]}
+    />
+  </div>
+</div>
+`;
+
+exports[`Storyshots REPL With Hint 1`] = `
+<div
+  className="css-icdhao-Wrapper e1bwmrgi0"
+>
+  <div
+    className="css-2gxfpl-Container e1bwmrgi1"
+  >
+    <div
+      className="css-qdaanj-FrameContainer e1bwmrgi2"
+    >
+      <iframe
+        className="css-1mqlg88-Frame e1bwmrgi3"
+        src="about:blank"
+        title="Preview Code"
+      />
+    </div>
+    <textarea
+      className="css-ylh50e-Editor e1bwmrgi4"
+      onChange={[Function]}
+    />
+  </div>
+  <p
+    className="css-35l7rt-Hint e11jffc00"
+  >
+    <div>
+      <p>
+        Work it
+      </p>
+    </div>
+  </p>
+</div>
+`;
