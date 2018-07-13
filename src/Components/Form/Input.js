@@ -57,11 +57,13 @@ export const Input = styled.input`
   ${({ disabled }) =>
     disabled ? 'cursor: not-allowed;' : ''} /* end disabled rules */
 
-  &:invalid {
+  &:invalid,
+  &.invalid {
     color: #e9322d;
   }
 
-  &:focus {
+  &:focus,
+  &.focus {
     outline: ${({ type }) =>
       THIN_OUTLINE_TYPES.includes(type.toLowerCase())
         ? 'thin solid #129FEA'
