@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Zeke/Image Level Introduction 1`] = `
+<main>
+  <div>
+    <p>
+      The prophecy states that ZE DRAGÓN spits a venom so acidic it melts bone to soup. To survive Zeke must find the sacred Armor of Alkali.
+    </p>
+    <p>
+      But he can't see. Zeke is blind and you will lead the way to the sacred armor. Here is your map:
+    </p>
+  </div>
+  <img
+    alt="A map with a clear path forward."
+    src="map.svg"
+  />
+  <button
+    onClick={[Function]}
+  >
+    Find the Armor
+  </button>
+</main>
+`;
+
+exports[`Storyshots Zeke/Image Level Map Exposition 1`] = `
+<main>
+  <div
+    className="Screen-full css-1l9pz1b-Flexbox e1ufb67l0"
+  >
+    <div
+      className="css-1pnj28a-Content eks0ene0"
+    >
+      <div
+        className="css-1vaxu82-Narrative ezofjep0"
+      >
+        <div>
+          <p>
+            Deathly spiders roam the woods. Many have taken a wrong turn and got lost in the 
+            <em>
+              deep
+            </em>
+             
+            <strong>
+              dark
+            </strong>
+             web. Zeke needs your help to read the map.
+          </p>
+        </div>
+      </div>
+      <p
+        className="instruction"
+      >
+        <em>
+          Add an 
+          <code>
+            alt
+          </code>
+           attribute to the image.
+          <br />
+          Describe what it pictures
+           
+          <small>
+            (including the word "sword")
+          </small>
+        </em>
+      </p>
+      <img
+        alt="Zeke's Map"
+        className="css-c3gi1j-MapImage eks0ene1"
+        src="map.svg"
+      />
+      <div
+        className="css-cglza0-InputContainer eks0ene3"
+      >
+        <input
+          className="css-10fpmjw-Input eybhq3u0"
+          fontSize="1.5em"
+          name="mapDescription"
+          onChange={[Function]}
+          pattern=".*sword.*"
+          required={true}
+          style={
+            Object {
+              "width": "100%",
+            }
+          }
+          type="text"
+          value=""
+        />
+        <p
+          className="css-1yxvt5d-InlineError e1ggi99v0"
+        >
+          test
+        </p>
+      </div>
+      <button
+        onClick={[Function]}
+      >
+        Explore the Forest
+      </button>
+    </div>
+    <div
+      className="css-ucb14c-Sidebar eks0ene2"
+    >
+      <div>
+        <p>
+          Web images have the 
+          <code>
+            alt
+          </code>
+           (alternative text) property to describe the contents of the picture. Every image should have this attribute - whether an empty string for visual effect only 
+          <em>
+            or
+          </em>
+           a description that can be read aloud. Users like Zeke need this attribute to understand the context of pictures that can't be see.
+        </p>
+      </div>
+      <p
+        className="css-35l7rt-Hint e11jffc00"
+      >
+        <div>
+          <h6>
+            Good image descriptions:
+          </h6>
+          <ul>
+            <li>
+              Briefly describe the subjects of the image.
+            </li>
+            <li>
+              List numbers, figures, and relevant facts.
+            </li>
+            <li>
+              Relate to the context where the image is embedded in markup.
+            </li>
+          </ul>
+        </div>
+      </p>
+    </div>
+  </div>
+</main>
+`;

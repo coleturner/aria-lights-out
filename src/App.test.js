@@ -12,7 +12,7 @@ describe('App', () => {
   });
 
   describe('#incrementLevel', () => {
-    const makeComponent = (props) => TestRenderer.create(<App {...props} />);
+    const makeComponent = props => TestRenderer.create(<App {...props} />);
 
     it('increments from 0 to 1', () => {
       const component = makeComponent({ level: 0, maxLevel: 0 });
@@ -32,5 +32,5 @@ describe('App', () => {
         instance.incrementLevel();
       }).toThrowError(INCREMENT_IMPOSSIBLE_ERROR);
     });
-  })
+  });
 });

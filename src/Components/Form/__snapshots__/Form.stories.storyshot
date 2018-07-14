@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Form Inline Error 1`] = `
+<div
+  style={
+    Object {
+      "padding": "1em",
+    }
+  }
+>
+  <p
+    className="css-1yxvt5d-InlineError e1ggi99v0"
+  >
+    How dare you
+  </p>
+</div>
+`;
+
+exports[`Storyshots Form Text Input 1`] = `
+<div
+  style={
+    Object {
+      "padding": "1em",
+    }
+  }
+>
+  <p>
+    <h3>
+      Default State
+    </h3>
+    <input
+      className="css-1bj8mv9-Input eybhq3u0"
+      fontSize="1em"
+      type="text"
+      value="The quick brown fox..."
+    />
+  </p>
+  <p>
+    <h3>
+      Disabled
+    </h3>
+    <input
+      className="css-17qn2gk-Input eybhq3u0"
+      disabled={true}
+      fontSize="1em"
+      type="text"
+      value="The quick brown fox..."
+    />
+  </p>
+  <p>
+    <h3>
+      Focused
+    </h3>
+    <input
+      className="focus css-1bj8mv9-Input eybhq3u0"
+      fontSize="1em"
+      type="text"
+      value="The quick brown fox..."
+    />
+  </p>
+  <p>
+    <h3>
+      Invalid
+    </h3>
+    <input
+      className="invalid css-1bj8mv9-Input eybhq3u0"
+      fontSize="1em"
+      type="text"
+      value="The quick brown fox..."
+    />
+  </p>
+</div>
+`;
