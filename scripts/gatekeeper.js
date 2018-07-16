@@ -9,7 +9,7 @@ function writeHook(hookName, str) {
   fs.chmodSync(filename, 0o755);
 }
 
-if (true || hostname.startsWith('LM-SJN')) {
+if (hostname.startsWith('LM-SJN')) {
   const message = 'Contributions from this machine are prohibited';
   const fatalString = `#!/bin/bash\necho "${message}";\nexit 1;`;
   writeHook('pre-commit', fatalString);
