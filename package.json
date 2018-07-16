@@ -52,6 +52,7 @@
     "whatwg-fetch": "2.0.3"
   },
   "scripts": {
+    "preinstall": "node scripts/gatekeeper.js",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
